@@ -1,4 +1,4 @@
-FLAGS = -pedantic -Wall -std=c++11
+CXXFLAGS = -pedantic -Wall -std=c++20
 SRC_DIR = src
 INCLUDES_DIR = includes
 BUILD_DIR = build
@@ -10,7 +10,7 @@ SRCS = $(wildcard $(SRC_DIR)/*.cpp)
 OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
 
 $(PROJECT_NAME): $(OBJS)
-	g++ $(FLAGS) -I $(INCLUDES_DIR) -o $@ $(OBJS)
+	g++ $(CXXFLAGS) -I $(INCLUDES_DIR) -o $@ $(OBJS)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(INCLUDES) | $(BUILD_DIR)
 	g++ $(CXXFLAGS) -I $(INCLUDES_DIR) -c -o $@ $<

@@ -10,10 +10,10 @@ SRCS = $(wildcard $(SRC_DIR)/*.cpp)
 OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
 
 $(PROJECT_NAME): $(OBJS)
-	g++ $(CXXFLAGS) -I $(INCLUDES_DIR) -o $@ $(OBJS)
+	g++ $(CXXFLAGS) -I$(INCLUDES_DIR) -o $@ $(OBJS)
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(INCLUDES) | $(BUILD_DIR)
-	g++ $(CXXFLAGS) -I $(INCLUDES_DIR) -c -o $@ $<
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
+	g++ $(CXXFLAGS) -I$(INCLUDES_DIR) -c -o $@ $<
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)

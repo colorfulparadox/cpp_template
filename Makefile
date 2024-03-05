@@ -2,7 +2,7 @@ CXXFLAGS = -pedantic -Wall -std=c++20
 SRC_DIR = src
 INCLUDES_DIR = includes
 BUILD_DIR = build
-PROJECT_NAME = project
+PROJECT_NAME = out
 
 # A List of src files in the src
 SRCS = $(wildcard $(SRC_DIR)/*.cpp)
